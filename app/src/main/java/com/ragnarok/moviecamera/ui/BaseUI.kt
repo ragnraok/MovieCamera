@@ -1,4 +1,4 @@
-package com.ragnarok.moviecamera
+package com.ragnarok.moviecamera.ui
 
 import android.graphics.Typeface
 import android.os.Bundle
@@ -10,7 +10,9 @@ import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.View
 import android.widget.TextView
-android.support.v7.widget.Toolbar
+import com.ragnarok.moviecamera.R
+
+Toolbar
 
 /**
  * Created by ragnarok on 15/6/8.
