@@ -8,7 +8,7 @@ import java.lang
  */
 
 object CamLogger {
-    fun d(TAG: String, format: String, vararg args: Any) {
+    fun d(TAG: String, format: String, vararg args: Any?) {
         if (args.size() > 0) {
             Log.d(TAG, lang.String.format(format, args))
         } else {
@@ -16,7 +16,7 @@ object CamLogger {
         }
     }
 
-    fun v(TAG: String, format: String, vararg args: Any) {
+    fun v(TAG: String, format: String, vararg args: Any?) {
         if (args.size() > 0) {
             Log.v(TAG, lang.String.format(format, args))
         } else {
@@ -24,7 +24,7 @@ object CamLogger {
         }
     }
 
-    fun w(TAG: String, format: String, vararg args: Any) {
+    fun w(TAG: String, format: String, vararg args: Any?) {
         if (args.size() > 0) {
             Log.w(TAG, lang.String.format(format, args))
         } else {
@@ -32,7 +32,7 @@ object CamLogger {
         }
     }
 
-    fun e(TAG: String, format: String, vararg args: Any) {
+    fun e(TAG: String, format: String, vararg args: Any?) {
         if (args.size() > 0) {
             Log.e(TAG, lang.String.format(format, args))
         } else {
