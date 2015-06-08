@@ -11,6 +11,7 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import com.ragnarok.moviecamera.R
+import com.ragnarok.moviecamera.util.CamLogger
 
 Toolbar
 
@@ -40,10 +41,10 @@ public abstract class BaseUI: ActionBarActivity() {
             setSupportActionBar(mToolbar)
             
             mTitleText = mToolbar?.findViewById(R.id.title) as TextView
-            mTitleText?.setTypeface(Typeface.createFromAsset("appleberry.ttf"))
+            mTitleText?.setTypeface(Typeface.createFromAsset(getAssets(), "appleberry.ttf"))
             
         } catch (e: Exception) {
-            Log.e(TAG, "initToolbar error: " + e.getMessage())
+            CamLogger.e(TAG, "initToolbar error: %s", e.getMessage())
         }
         
     }
