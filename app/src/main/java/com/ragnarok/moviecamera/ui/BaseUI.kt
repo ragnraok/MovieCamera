@@ -36,6 +36,11 @@ public abstract class BaseUI: AppCompatActivity() {
     override fun setContentView(layoutResID: Int) {
         super.setContentView(layoutResID)
         initToolbar()
+        
+    }
+
+    override fun onResume() {
+        super.onResume()
         if (!isDisableToolbarAnim()) {
             startToobarInitAnim()
         }
@@ -72,7 +77,7 @@ public abstract class BaseUI: AppCompatActivity() {
     }
     
     val TOOLBAR_INIT_ANIM_DURATION: Long = 300
-    val TITLE_TEXT_INIT_ANIM_DURATION: Long = 350
+    val TITLE_TEXT_INIT_ANIM_DURATION: Long = 450
     
     private fun startToolbarInitAnimInternal() {
         
@@ -80,18 +85,19 @@ public abstract class BaseUI: AppCompatActivity() {
         val titleText = getTitleText()
         if (toolBar != null && titleText != null) {
             
-            toolBar.animate().translationY(0f).setDuration(TOOLBAR_INIT_ANIM_DURATION).setStartDelay(300).start()
+            toolBar.animate().translationY(0f).setDuration(TOOLBAR_INIT_ANIM_DURATION).setStartDelay(500).start()
             
             titleText.animate().translationY(0f).
                     setInterpolator(OvershootInterpolator()).
                     setDuration(TITLE_TEXT_INIT_ANIM_DURATION).
-                    setStartDelay(400).
+                    setStartDelay(600).
                     setListener(object : Animator.AnimatorListener {
                         override fun onAnimationCancel(animation: Animator?) {
                             
                         }
 
                         override fun onAnimationEnd(animation: Animator) {
+                            CamLogger.d(TAG, "toolbar init anim finish")
                             onToolbarInitAnimFinish()
                         }
 
