@@ -21,11 +21,6 @@
             android:layout_margin="@dimen/image_list_margin"
             android:scrollbars="none" />
 
-        <!--<moviecam.ragnarok.ui.CircularRevealMaskView-->
-            <!--android:id="@+id/revealView"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent" />-->
-
         <ImageButton
             android:id="@+id/create"
             android:layout_width="@dimen/fab_size"
