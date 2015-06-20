@@ -112,7 +112,7 @@ public abstract class BaseUI: AppCompatActivity() {
        
     }
     
-    protected fun onToolbarInitAnimFinish() {}
+    open protected fun onToolbarInitAnimFinish() {}
     
-    protected fun isDisableToolbarAnim(): Boolean { return false }
+    open protected fun isDisableToolbarAnim(): Boolean { return false }
 }
