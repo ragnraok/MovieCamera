@@ -8,35 +8,19 @@ import java.lang
  */
 
 object CamLogger {
-    fun d(TAG: String, format: String, vararg args: Any?) {
-        if (args.size() > 0) {
-            Log.d(TAG, lang.String.format(format, args))
-        } else {
-            Log.d(TAG, format)
-        }
+    fun d(TAG: String, content: String) {
+        Log.d(TAG, content)
     }
 
-    fun v(TAG: String, format: String, vararg args: Any?) {
-        if (args.size() > 0) {
-            Log.v(TAG, lang.String.format(format, args))
-        } else {
-            Log.v(TAG, format)
-        }
+    fun v(TAG: String, content: String) {
+        Log.v(TAG, content)
     }
 
-    fun w(TAG: String, format: String, vararg args: Any?) {
-        if (args.size() > 0) {
-            Log.w(TAG, lang.String.format(format, args))
-        } else {
-            Log.w(TAG, format)
-        }
+    fun w(TAG: String, content: String) {
+       Log.w(TAG, content)
     }
 
-    fun e(TAG: String, format: String, vararg args: Any?) {
-        if (args.size() > 0) {
-            Log.e(TAG, lang.String.format(format, args))
-        } else {
-            Log.e(TAG, format)
-        }
+    fun e(TAG: String, content: String) {
+        Log.e(TAG, content)
     }
 }

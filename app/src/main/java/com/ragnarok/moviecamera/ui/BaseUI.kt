@@ -59,7 +59,7 @@ public abstract class BaseUI: AppCompatActivity() {
             mTitleText?.setTranslationY(-actionBarSize.toFloat())
             
         } catch (e: Exception) {
-            CamLogger.e(TAG, "initToolbar error: %s", e.getMessage())
+            CamLogger.e(TAG, "initToolbar error: ${e.getMessage()}")
         }
         
     }
