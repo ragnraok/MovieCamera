@@ -50,7 +50,7 @@ class CircularRevealMaskView : View {
     }
     
     public fun startShow(locX: Int, locY: Int) {
-        CamLogger.d(TAG, "startShow, locX: %d, locY: %d, state: %d", locX, locY, state)
+        CamLogger.d(TAG, "startShow, locX: $locX, locY: $locY, state: $state")
         if (locX >= 0 && locY >= 0 && state != STATE_REVEAL_START) {
             startLocX = locX
             startLocY = locY
@@ -59,7 +59,7 @@ class CircularRevealMaskView : View {
             radiusAnimator?.setInterpolator(INTERPOLARTOR)
             radiusAnimator?.addListener(object: AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator) {
-                    CamLogger.d(TAG, "show reveal finish, state: %d", state);
+                    CamLogger.d(TAG, "show reveal finish, state: $state");
                     changeState(STATE_REVEAL_FINISH)
                 }
             })
