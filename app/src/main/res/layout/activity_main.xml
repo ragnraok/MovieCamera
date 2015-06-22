@@ -5,34 +5,39 @@
                 tools:context=".MainUI"
                 style="@style/BaseUIRootLayout">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar_layout"/>
+	<include
+		android:id="@+id/toolbar"
+		layout="@layout/toolbar_layout"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/toolbar">
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@id/toolbar">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/images_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/image_list_margin"
-            android:scrollbars="none" />
+		<com.ragnarok.moviecamera.ui.CircularRevealMaskView 
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/revealView"/>
 
-        <ImageButton
-            android:id="@+id/create"
-            android:layout_width="@dimen/fab_size"
-            android:layout_height="@dimen/fab_size"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="@dimen/fab_bottom_margin"
-            android:layout_marginRight="@dimen/fab_right_margin"
-            android:background="@drawable/fab_background"
-            android:elevation="@dimen/fab_elevation"
-            android:scaleType="centerInside"
-            android:src="@drawable/plus" />
+		<android.support.v7.widget.RecyclerView
+			android:id="@+id/images_list"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="@dimen/image_list_margin"
+			android:scrollbars="none"/>
 
-    </RelativeLayout>
+		<ImageButton
+			android:id="@+id/create"
+			android:layout_width="@dimen/fab_size"
+			android:layout_height="@dimen/fab_size"
+			android:layout_alignParentBottom="true"
+			android:layout_alignParentRight="true"
+			android:layout_marginBottom="@dimen/fab_bottom_margin"
+			android:layout_marginRight="@dimen/fab_right_margin"
+			android:background="@drawable/fab_background"
+			android:elevation="@dimen/fab_elevation"
+			android:scaleType="centerInside"
+			android:src="@drawable/plus"/>
+
+	</RelativeLayout>
 </RelativeLayout>
