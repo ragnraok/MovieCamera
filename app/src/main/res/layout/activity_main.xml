@@ -13,11 +13,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:layout_below="@id/toolbar">
-
-		<com.ragnarok.moviecamera.ui.CircularRevealMaskView 
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:id="@+id/revealView"/>
+		
 
 		<android.support.v7.widget.RecyclerView
 			android:id="@+id/images_list"
@@ -38,6 +34,11 @@
 			android:elevation="@dimen/fab_elevation"
 			android:scaleType="centerInside"
 			android:src="@drawable/plus"/>
+
+		<com.ragnarok.moviecamera.ui.CircularRevealMaskView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:id="@+id/revealView"/>
 
 	</RelativeLayout>
 </RelativeLayout>

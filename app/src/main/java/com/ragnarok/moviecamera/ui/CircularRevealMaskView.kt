@@ -35,7 +35,7 @@ class CircularRevealMaskView : View {
 
     var paint: Paint = Paint()
     var radiusAnimator: ObjectAnimator? = null
-    var state: Int = STATE_REVEAL_UNKNOW
+    var state = STATE_REVEAL_UNKNOW
     var radius = 0
     var startLocX = -1
     var startLocY = -1
@@ -55,7 +55,7 @@ class CircularRevealMaskView : View {
             startLocX = locX
             startLocY = locY
             
-            radiusAnimator = ObjectAnimator.ofInt(this, "radius", 0, getWidth() + getHeight()).setDuration(REVEAL_DURATION)
+            radiusAnimator = ObjectAnimator.ofInt(this, "revealRadius", 0, getWidth() + getHeight()).setDuration(REVEAL_DURATION)
             radiusAnimator?.setInterpolator(INTERPOLARTOR)
             radiusAnimator?.addListener(object: AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator) {
@@ -84,5 +84,10 @@ class CircularRevealMaskView : View {
         if (newState != state) {
             state = newState
         }
+    }
+    
+    public fun setRevealRadius(radius: Int) {
+        this.radius = radius
+        invalidate()
     }
 }
