@@ -25,6 +25,8 @@ class MainUI : BaseUI() {
     var revealMaskView: CircularRevealMaskView? = null
     
     val uiHandler = Handler(Looper.getMainLooper())
+    
+    var isShow = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,11 +40,19 @@ class MainUI : BaseUI() {
         createButton?.setTranslationY(createButtonTransY)
 
         createButton?.setOnClickListener { v: View ->
-            var location = Array(2, { 0 }).toIntArray()
-            createButton?.getLocationOnScreen(location)
-            val x = location[0] + createButton!!.getWidth() / 2
-            val y = location[1] + createButton!!.getHeight() / 2
-            showRevealView(x, y)
+            
+            if (isShow) {
+                var location = Array(2, { 0 }).toIntArray()
+                createButton?.getLocationOnScreen(location)
+                val x = location[0] + createButton!!.getWidth() / 2
+                val y = location[1] + createButton!!.getHeight() / 2
+                showRevealView(x, y)
+                isShow = false
+            } else {
+                isShow = true
+                hideRevealView()
+            }
+            
             
         }
 
@@ -50,7 +60,13 @@ class MainUI : BaseUI() {
     }
     
     private fun showRevealView(locX: Int, locY: Int) {
+        revealMaskView?.resetState()
         uiHandler.postDelayed({revealMaskView?.startShow(locX, locY)}, 50)
+    }
+    
+    private fun hideRevealView() {
+        revealMaskView?.resetState()
+        uiHandler.postDelayed({revealMaskView?.startHide()}, 50)
     }
 
     private fun initImageList() {
@@ -67,4 +83,6 @@ class MainUI : BaseUI() {
 
         createButton?.animate()!!.translationY(0f).setInterpolator(OvershootInterpolator()).setDuration(300).setStartDelay(250)
     }
+    
+    
 }

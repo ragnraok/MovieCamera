@@ -25,6 +25,10 @@ val INTERPOLARTOR = AccelerateDecelerateInterpolator();
 
 class CircularRevealMaskView : View {
     val TAG: String = "MoviceCamera.CircularRevealMaskView"
+    
+    interface OnReavealChange {
+        fun onStateChange(state: Int)
+    }
 
     constructor(context: Context?) : super(context) {
     }
@@ -67,6 +71,22 @@ class CircularRevealMaskView : View {
             changeState(STATE_REVEAL_START)
         }
     }
+    
+    public fun startHide() {
+        CamLogger.d(TAG, "startHide, startLocX: ${startLocX}, startLocY: ${startLocY}, radius: ${radius}, state: ${state}")
+        if (startLocX >= 0 && startLocY >= 0 && radius > 0 && state != STATE_REVEAL_FINISH) {
+            radiusAnimator = ObjectAnimator.ofInt(this, "revealRadius", getWidth() + getHeight(), 0).setDuration(REVEAL_DURATION)
+            radiusAnimator?.setInterpolator(INTERPOLARTOR)
+            radiusAnimator?.addListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    CamLogger.d(TAG, "hide reveal finish, state: ${state}")
+                    changeState(STATE_REVEAL_FINISH)
+                }
+            })
+            radiusAnimator?.start()
+            changeState(STATE_REVEAL_START)
+        }
+    }
 
     override fun onDraw(canvas: Canvas) {
         canvas.save()
@@ -89,5 +109,9 @@ class CircularRevealMaskView : View {
     public fun setRevealRadius(radius: Int) {
         this.radius = radius
         invalidate()
+    }
+    
+    public fun resetState() {
+        state = STATE_REVEAL_UNKNOW
     }
 }
