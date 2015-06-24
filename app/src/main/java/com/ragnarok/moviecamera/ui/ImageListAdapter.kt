@@ -68,7 +68,7 @@ class ImageListAdapter(var context: MainUI): RecyclerView.Adapter<RecyclerView.V
             imageView = itemView.findViewById(R.id.image) as ImageView
             
             cardView?.setOnTouchListener(this)
-            imageView?.setOnClickListener(this)
+            cardView?.setOnClickListener(this)
         }
 
         override fun onTouch(v: View?, event: MotionEvent): Boolean {
